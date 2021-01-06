@@ -1,0 +1,178 @@
+<div class="content">
+  <div class="row">
+    <div class="col-12">
+      <div class=" card card-chart">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm-2 text-left">
+              <img src="./assets/img/logo-itau.png" />
+            </div>
+            <div class="col-sm-10">
+              <h2>Saque de conta corrente</h2>
+              <h5 class="label-formatada">Toque a opção desejada</h5>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <div class="card card-chart">
+        <div class="card-body text-right">
+          <form [formGroup]="form">
+            <div class="form-group row">
+              <label for="valor" class="col-sm-5 col-form-label label-formatada text-right">valor:</label>
+              <div class="col-sm-7 text-right">
+                <input type="text" (blur)="validarValorMaximoDisponivel()" formControlName="valor" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" class="form-control label-value text-right"
+                  placeholder="selecione ao lado">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="valorMaximo" class="col-sm-5 col-form-label label-formatada">valor máximo:</label>
+              <div class="col-sm-3 text-right">
+                <input type="text" value="teste" formControlName="valorDisponivel" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" readonly class="form-control-plaintext label-value label-disponível">
+              </div>
+              <div class="col-sm-4 text-left">
+                <span class="label-value">disponível</span>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="notasDisponiveis" class="col-sm-5 col-form-label label-formatada text-right">notas
+                disponiveis:</label>
+              <div class="col-sm-5 text-right">
+                <ul>
+                  <li class="label-value" *ngFor="let item of notasDisponiveis">
+                    {{ 'R$ ' +  item.valorNota }}</li>
+                </ul>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+      <div class="card card-chart">
+        <div class="card-body text-right">
+          <div class="form-group row">
+            <label for="notasDisponiveis" class="col-sm-5 col-form-label text-right veja-tela">veja sem sair da tela
+            </label>
+            <div class="col-sm-7 text-right">
+              <i class="tim-icons icon-coins icon-saldo"></i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="saldo" class="col-sm-5 col-form-label label-formatada text-right">saldo
+            </label>
+            <div class="col-sm-7 text-right">
+              <input type="text" readonly class="form-control-plaintext label-value" id="saldo" value="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="btn-link">
+                    <a (click)="setarValor('50')">R$ 50,00</a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="btn-link">
+                    <a (click)="setarValor('400')">R$ 400,00</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="btn-link">
+                    <a (click)="setarValor('100')">R$ 100,00</a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="btn-link">
+                    <a (click)="setarValor('500')">R$ 500,00</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="btn-link">
+                    <a (click)="setarValor('150')">R$ 150,00</a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="btn-link">
+                    <a (click)="setarValor('600')">R$ 600,00</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="btn-link">
+                    <a (click)="setarValor('200')">R$ 200,00</a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="btn-link">
+                    <a (click)="setarValor('1500')">R$ 1500,00</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="btn-link-saque-poupanca btn-saque-poupanca">
+                    <a>saque de poupança</a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="btn-link btn-outro-valor">
+                    <a>outro valor</a>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row text-right">
+    <div class="col-3">
+      <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      voltar
+    </div>
+    <div class="col-3">
+      <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+        <i class="fa fa-home"></i>
+      </button>
+      início
+    </div>
+    <div class="col-3">
+      <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+        <i class="fas fa-times-circle"></i>
+      </button>
+      fim
+    </div>
+  </div>
+</div>
